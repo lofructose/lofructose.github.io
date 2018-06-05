@@ -1,62 +1,628 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>ghost me</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<link href="cssConsole.console.css" type="text/css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="cssConsole.min.js"></script>
+<style>
+body{
+background: #000000;
+font-family: courier;
+}
+
+.container {
+margin: 50px auto;
+height: 600px;
+width: 950px;
+position:relative;
+border:1px solid #fefefe;
+}
+
+#input {
+width: 910px;
+display:inline-block;
+position:relative;
+float:left;
+}
+
+.bottom {
+position:absolute;
+bottom:5px;
+width: 100%;
+}
+
+.label {
+width: 30px;
+position: relative;
+left: 15px;
+top:5px;
+color: #fefefe;
+float:left;
+}
+
+.console {
+position:absolute;
+bottom:32px;
+overflow:hidden;
+	
+}
+
+.white{
+color: #fefefe;
+	a:link {
+    color: red;
+}
+
+}
+
+.blue{
+color: #81bbd5;
+}
+
+.line {
+margin-left: 15px;
+margin-bottom:2px;
+	a:link {
+    color: red;
+}
+
+}
+
+.margin {
+margin-left: 40px;
+margin-bottom:2px;
+}
+	
+	.footer{
+		width: 100%;
+		height: 50px;
+		position: absolute;
+		bottom: 0;
+	}
+
+</style>
+<meta charset=utf-8 />
+<title>ghost me;</title>
 </head>
-
-<body>
-	<main>Content for New main Tag Goes Here</main>
-<div><p id="demo" class="container"></p></div>
+<body link="white" vlink="white">
+	<div class="container">
+		<div class="console">
+			<div class="line white">
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>This is an audio + narrative experience. If your browser does not automatically play the audio, visit <a href="http://www.soundcloud.com/lofructose">Soundcloud</a>, or <a href="Music for ghost me;.zip">download direct</a>.</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>type "start" to begin</p>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="label">></div>
+			<div id="input"></div>
+		</div>
+	</div>  
 <script>
-// Set the date we're counting down to
-var countDownDate = new Date("Jun 6, 2018 00:00:00").getTime();
+$(document).ready(function() {
+    $('#input').find('input').focus();
+});
 
-// Update the count down every 1 second
-var x = setInterval(function() {
 
-  // Get todays date and time
-  var now = new Date().getTime();
+$('#input').cssConsole({
+	inputName:'console',
+	charLimit: 60,
+	onEnter: function(){
+		addLine("> "+$('#input').find('input').val());
+		execCommand($('#input').find('input').val());
+		$('#input').cssConsole('reset');	
+		$('#input').find('input').focus();
+	}
+});
 
-  // Find the distance between now an the count down date
-  var distance = countDownDate - now;
+var lineLimit = 28;
+var ending = "start"
 
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+$('.container').on('click', function() {
+	$('#input').find('input').focus();
+});
 
-  // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
+function addLine(input, style, color) {
+		if($('.console div').length==lineLimit) {
+			$('.console div').eq(0).remove();
+		}
+		style = typeof style !== 'undefined' ? style : 'line';
+		color = typeof color !== 'undefined' ? color : 'white';
+		$('.console').append('<div class="'+style+' '+color+'">'+input+'</div>');
+}
+	
+	
+	
+	var waitTime = 20
+	function end(){
+		spot = "am"
+	/* hang up*/ if(ending == "hang up"){
+		
+		cls();	
+		var delay = 25
+		setTimeout(function(){
+			addLine("&nbsp;");
+			addLine("After you put your phone away, you decided to head home. You didn't check your phone once on the way back.")}, delay*60);
+		setTimeout(function(){
+					cls14();
+			addLine("The next morning comes and you dont feel the anxiety buzzing in your head like you did last night. Instead you feel like you got out what was necessary, even though you feel like you kind of crossed the line by calling someone at 2:30am");
+				addLine("Moving on is difficult.");
+				addLine("&nbsp;");
+				addLine("If you could go back, would you change anything?");
+			
+								}, delay*60);
+		
+}	
+	/*vm*/ if(ending == "vm"){
+		cls();	
+		var delay = 25
+		setTimeout(function(){
+		addLine("&nbsp;");
+		addLine("You let your desperation get the better of you.")}, delay*60);
+		setTimeout(function(){
+					cls14();
+		addLine("The next morning comes and you check your phone immediately. No response.");
+		addLine("&nbsp;");
+		addLine("If you could go back, would you change anything?");
+			
+								}, delay*60);
+		
+	}	
+	
+}
+function execCommand(command){
+    if ( commands[command] ) {
+      return commands[command]();
+    } else {
+		
+      if (spot == "wait"){
+		  waitTime += parseFloat(command)
+		  cls();
+		  addLine("You wait " + command + " minutes. No reply.")
+		  addLine("it has been " + waitTime + " minutes.")
+		  addLine("call, text, or wait?")
+	  }
+		//addLine("Command '" + command + "' was not found.");
+    } 
+	if (waitTime == 66){
+			
+			congrats();
+		}  
+	if (waitTime == 86){
+			
+			congrats();
+		} 
+	if (waitTime > 200){
+		var delay = 25	
+		spot = "am";
+		waitTime = 20
+		cls();
+		if (ending == "start"){setTimeout(function(){
+			addLine("&nbsp;");
+			addLine("You ended up looking at your phone until the battery died. You ended your night early and went home, with this on your mind.")}, delay*60);
+		setTimeout(function(){
+					cls14();
+			addLine("The next morning comes and you still feel this lingering in your head. You check your phone, no reply still. ");
+				addLine("Moving on is difficult.");
+				addLine("&nbsp;");
+				addLine("If you could go back, would you change anything?");
+			
+								}, delay*60);
+		}
+		if (ending != "start"){end();}
 
-  // If the count down is finished, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
-  }
-}, 1000);
+					   }
+}
+function cls(){
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+	
+}
+function cls14(){
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+		addLine("&nbsp;")
+	
+}
+function call(){
+	
+		spot = "call"
+		callTimes += 1
+		cls();
+		var delay = 25
+		if (callTimes <= 2) {
+			setTimeout(function(){
+					addLine("ring...")
+								}, delay*20);
+		setTimeout(function(){
+					addLine("ring...")
+								}, delay*40);
+		setTimeout(function(){
+					addLine("ring...")
+								}, delay*60);
+		setTimeout(function(){
+					addLine("ring...")
+								}, delay*100);
+		setTimeout(function(){
+					addLine("ring...")
+								}, delay*120);
+		setTimeout(function(){
+					addLine("ring...")
+								}, delay*140);
+		setTimeout(function(){
+					addLine("'Your call has been forwarded to an automatic voice messaging system. ###-###-#### is not available. Please leave your message after the tone. When you have finished recording, you may hang up, or press 1 for more options.'")
+								}, delay*160);
+		setTimeout(function(){
+					addLine("Do you leave a message, or hang up?")
+								}, delay*180);
+							}
+			else{
+				ending = "vm"
+				setTimeout(function(){
+					addLine("ring...")
+								}, delay*20);
+		setTimeout(function(){
+					addLine("ring...")
+								}, delay*40);
+		setTimeout(function(){
+					addLine("ring...")
+								}, delay*60);
+		setTimeout(function(){
+					addLine("ring...")
+								}, delay*100);
+		setTimeout(function(){
+					addLine("ring...")
+								}, delay*120);
+		setTimeout(function(){
+					addLine("ring...")
+								}, delay*140);
+		setTimeout(function(){
+					cls();
+					addLine("'The mailbox is full and cannot accept any messages at this time. Goodbye!'")
+					cls14();
+								}, delay*160);
+		setTimeout(function(){
+			end();
+		}, delay * 300 )
+				
+			}
+}
+function startup(){
+	spot = "start"
+	callTimes = 0
+	voicemails = 0
+	cls();
+	var delay = 25
+	setTimeout(function(){addLine("ghost me;");cls14();}, delay*60)
+			setTimeout(function(){
+				cls();
+				addLine("it has been 20 minutes, still no response.")
+				addLine("&nbsp;")
+				addLine("&nbsp;")
+				addLine("&nbsp;")
+				addLine("what do you do?")
+				addLine("call, text, or wait?")
+								}, delay*120);		
+}
+function congrats(){
+		cls();
+		addLine("Welcome to The Red Tides...")
+		addLine("We are a group of mystery makers...")
+		addLine("You are of the first...")
+		addLine("discord.gg/w4u94aw")
+		cls14();
+}
+
+function stayout(){
+	addLine("&nbsp;")
+	addLine("Do you want to end the night, or stay out?")
+}
+var spot = "start"
+var callTimes = 0
+var voicemails = 0
+var commands = {
+	help: function (){
+		addLine("Available command list:");
+		addLine("dir", 'margin');
+		addLine("help", 'margin');
+		addLine("ps", 'margin');
+	},
+	dir: function(){
+		addLine(".");
+		addLine("..");
+		addLine("Applications", 'margin', 'blue');
+		addLine("Documents", 'margin', 'blue');
+		addLine("Downloads", 'margin', 'blue');
+		addLine("Movies", 'margin', 'blue');
+		addLine("Music", 'margin', 'blue');
+		addLine("System", 'margin', 'blue');		
+	},
+	ps: function() {
+		addLine("Running processes:");
+		addLine("name: browser pid:8876", 'margin');
+		addLine("name: movie player pid:3213", 'margin');
+		addLine("name: system pid:0012", 'margin');
+	},
+	"go home": function(){
+		congrats()
+	},
+	"text": function(){
+		addLine("You navigate to the text thread. Would you like to read through before sending a message?")
+		spot="text"
+		},
+	"wait": function(){
+		spot="wait"
+		addLine("How many minutes would you like to wait?")	
+	},
+	"66": function(){
+		if (spot =="wait"){
+		congrats()
+		}
+	},
+	"yes": function(){
+		if (spot == "am") {
+		startup();
+		}
+		if (spot == "call") { call()
+			
+		}
+/*^ending^*/if (spot == "text2"){
+			var delay = 25
+			/*
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*2);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*3);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*4);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*5);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*6);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*7);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*8);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*9);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*10);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*11);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*12);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*13);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*14);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*15);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*16);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*17);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*18);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*19);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*20);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*21);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*22);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*23);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*24);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*25);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*26);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*27);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*28);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*29);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*30);
+			setTimeout(function(){
+					addLine("&nbsp;")
+								}, delay*31);*/
+		spot = "am"
+		cls();
+		setTimeout(function(){
+					addLine("2:50am: i need you.")
+			cls14();
+								}, delay*60);
+		
+		setTimeout(function(){
+					cls();
+					addLine("You wake up the next morning, hung over, but safe in your bed. You can hardly remember the night before.")
+					cls14()
+					addLine("You check your notifications, he never replied.")
+					addLine("You still feel anxious about the situation.")
+					addLine("Moving on is difficult.")
+					addLine("&nbsp;")
+					addLine("If you could go back, would you change anything?")
+								}, delay*140);	
+		}
+		if (spot == "text"){
+			addLine("You read the messages.")
+			addLine("&emsp;&emsp;&emsp;&emsp;&emsp; 6/5 Me: hey")
+			addLine("&emsp;&emsp;&emsp;&emsp;&emsp; 6/5 Me: hey")
+			addLine("&emsp;&emsp;&emsp;&emsp;&emsp; 6/5 Me: how are you?")
+			addLine("&emsp;&emsp;&emsp;&emsp;&emsp; 3:30pm Me: I'm going out tonight wanna come?")
+			addLine("&emsp;&emsp;&emsp;&emsp;&emsp; 2:30am Me: i miss you.")
+			addLine("&emsp;")
+			addLine("Would you still like to send another message?")
+			spot="text2"
+		}
+		
+	},
+	"no": function(){
+		/*would you go back?*/ if (spot == "am"){
+			cls();
+			addLine("You are content with your decisions. Life is not always easy, and it is not going to get easier from here.");
+			cls14();
+			spot = "start"
+			
+		}
+		/*call again? ^ending^*/ if (spot == "call"){
+			addLine("You put the phone down, you know that if he heard that he would call back right away.")
+			stayout();
+			ending = "hang up"
+		}
+		/*you sure you wanna text? ^ending^*/ if (spot == "text2"){
+			cls();
+			addLine("You look at the messages, and realize how it may seem to someone if you texted again, you decide against it.")
+			addLine("&nbsp;")
+			addLine("it has been " + parseFloat(waitTime + 5) + " minutes, still no response.")
+				addLine("&nbsp;")
+				addLine("&nbsp;")
+				addLine("&nbsp;")
+				addLine("what do you do?")
+				addLine("call, text, or wait?")
+		}
+		/*read messages?*/ if (spot == "text"){
+			spot = "text2"
+			addLine("You navigate to the text thread, and notice you have messaged him several times before this. Would you still like to text him agin?")
+		}
+	},
+		"end the night": function(){
+			
+			end();
+		},
+		"stay out": function(){
+				cls();
+				addLine("it has been " + parseFloat(waitTime + 5) + " minutes, still no response.")
+				addLine("&nbsp;")
+				addLine("&nbsp;")
+				addLine("&nbsp;")
+				addLine("what do you do?")
+				addLine("call, text, or wait?")	
+		},
+	start: function(){ 
+		startup()
+		
+},
+	call: function(){
+		call();
+	},
+		"leave a message": function(){
+			voicemails +=1
+			/*first vm*/if (voicemails == 1){
+			addLine("'hey it's me! i was just calling because...well..im having a lot of fun and id love for you to join me! just... text me, okay?")
+			addLine("Do you want to call him again?")}
+			/*second vm*/ if (voicemails ==2){
+				addLine("'hey..me again...um, i guess i just really want you to text me back or call me. it hasnt been easy for me lately. alright...bye'")
+				addLine("Do you want to call him again?")
+			}
+		},
+		/*^ending^ */"hang up": function(){
+			ending = "hang up"
+			addLine("You put the phone down. You feel kind of silly having called, but maybe he just didn't hear his phone.")
+			stayout();
+			spot = "am"
+		}
+}
 </script>
-<article>
-  <div class="background-wrap">
-    <p>
-      <!-- <video id="vg-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
-		<source src="2018-05-23 19-51-04.mp4" type="video/mp4">
-		</video> -->
-    </p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-  </div>
-</article>
-	<audio autoplay loop>
-  <source src="2018-05-23 19-51-04.mp3" type="audio/mp3">
-</audio>
+  
 </body>
+	<footer class="footer">
+	
+		<center>
+			<a href="https://twitter.com/LOFRUCTOSE"><img src="Twitter_logo_white.png" height="20" width="20"></img></a>
+			<a href="https://soundcloud.com/lofructose"><img src="soundcloud-social-media-logo-3af7427bfa0a9158-512x512.png" height="20" width="20"></img></a>
+		
+		
+		
+		</center>
+	
+	</footer>
 </html>
