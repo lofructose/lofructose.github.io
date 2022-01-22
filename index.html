@@ -12,6 +12,11 @@
     /* overflow: hidden; */
     position: relative;
 }
+img{
+  width: 100%;
+max-width: 400px;
+height: auto;
+}
 .terminal {
 --color: white;
 --background: black;
@@ -60,6 +65,9 @@ overflow-x:hidden; */
     },
     help: function(){
         this.echo("\n" + "> we can all use a hand." + "\n" + "> here's some help." + "\n" + "\n" + "> art - see my work." + "\n" +  "> music - hear my work." + "\n" +  "> writing - read my work.")
+    },
+    art: function(){
+      this.echo($('<img src="images/15.jpg">'));
     }
 },{
   greetings: "l̴̘̒ọ̴̀s̵̬͘t̵̳̓ṿ̸̐i̸̻̅s̵̬̀i̴̳͘õ̸̩n̷͕͠ş̷͛ " + "\n" + "> welcome to my mind." + "\n" + "> this site is built to be explored." + "\n" + "> if you need help, just say so." + "👇"
