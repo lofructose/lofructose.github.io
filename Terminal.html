@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
+</head>
+<style media="screen">
+  body {
+    background-color: black;
+}
+.terminal {
+--color: white;
+--background: black;
+--link-color: darkblue;
+--size: 2.5;
+position: fixed;
+/* bottom:10px; */
+width:100%;
+height:100%;
+overflow-y:scroll;
+overflow-x:hidden;
+}
+.maindo{
+  color:black;
+  /* position:relative; */
+  width:100%;
+  height: 100%;
+  /* bottom:10px; */
+  overflow-y:scroll;
+overflow-x:hidden;
+/* display: flex; */
+}
+</style>
+<body>
+  <div class="maindo">
+  <div id="terminal">
+  <script>
+    // $('#terminal').terminal({
+    //   hello: function(what){
+    //     this.echo('Hello, ' + what + '. Welcome to the gun show.')
+    //   }
+    // },
+    //     help: function(){
+    //       this.echo('You have been helped.')
+    //     }
+    //   );
+    $('#terminal').terminal({
+    open: function() {
+        this.echo('you try to open').exec('close');
+    },
+    close: function() {
+        this.echo('you closed');
+    },
+    fart: function(){
+        this.echo('smell')
+    },
+    help: function(){
+        this.echo("\n" + "> we can all use a hand." + "\n" + "> here's some help." + "\n" + "\n" + "> art - see my work." + "\n" +  "> music - hear my work." + "\n" +  "> writing - read my work.")
+    }
+},{
+  greetings: "l̴̘̒ọ̴̀s̵̬͘t̵̳̓ṿ̸̐i̸̻̅s̵̬̀i̴̳͘õ̸̩n̷͕͠ş̷͛ " + "\n" + "> welcome to my mind." + "\n" + "> this site is built to be explored." + "\n" + "> if you need help, just say so." + "👇"
+});
+  </script>
+  </div>
+  </div>
+  <!-- <div>
+    pad
+    </div> -->
+</body>
+</html>
