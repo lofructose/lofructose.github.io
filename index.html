@@ -1,4 +1,4 @@
-<html>
+<html style="background-color: #222225;">
 <head>
 <title>Terminal</title>
 <meta name="theme-color" content="#ffffff">
@@ -35,9 +35,9 @@
 
 </head>
 <link rel="stylesheet" href="https://unpkg.com/terminal.css@0.7.2/dist/terminal.min.css" />
-<body class="terminal">
+<body class="terminal" style="background-color: #222225;">
   <div style="width:100%; height:50px; position:absolute;">
-  <input id="inpt" type="text" placeholder="> commands . . ."></input>
+  <input id="inpt" type="text" placeholder="> commands . . ." autocorrect="off" autocapitalize="none"></input>
   <button id="myBtn" onclick="push()" style="display: none;">Button</button>
   </div>
   <div style="overflow-y:auto; height:100%; padding-top:50px;">
@@ -60,7 +60,8 @@ function push(){
     target.insertAdjacentHTML("beforeend", "<br />we could all use a little help . . . <br /> try some of these commands 👇<br /> --------------------- <br /> art -- see something <br /> music -- hear somethihng <br /> words -- read something")
   }
   if (inputValue == "art"){
-    target.insertAdjacentHTML("beforeend", "<br /><img src='/images/'17.jpg'> </img>")
+    target.insertAdjacentHTML("beforeend", "<br /> <i>Title: 17</i><img src='17.jpg'/>")
+    target.insertAdjacentHTML("beforeend", "<br /> <i>Title: 22</i> <img src='22.jpg'/>")
   }
 input.value = ""
 }
