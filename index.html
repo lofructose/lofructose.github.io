@@ -1,6 +1,6 @@
 <html style="background-color: #222225;">
 <head>
-<title>Terminal</title>
+<title>lostvisions</title>
 <meta name="theme-color" content="#ffffff">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -36,12 +36,15 @@
 </head>
 <link rel="stylesheet" href="https://unpkg.com/terminal.css@0.7.2/dist/terminal.min.css" />
 <body class="terminal" style="background-color: #222225; overflow:hidden;">
-  <div style="width:100%; height:50px; position:absolute;">
+  <div style="width:100%; height:50px; position:absolute;overflow:hidden;">
   <input id="inpt" type="text" placeholder="> commands . . ." autocorrect="off" autocapitalize="none"></input>
   <button id="myBtn" onclick="push()" style="display: none;">Button</button>
   </div>
   <div style="overflow-y:auto; height:100%; padding-top:50px;">
-    <div id="target">
+    <div id="target"><br />
+---------------------
+      <br />welcome. it's nice to have you. <br />
+      not sure where to start? type "help" above.
       <!-- content enters here -->
     </div>
   </div>
@@ -50,18 +53,22 @@ var input = document.getElementById("inpt");
 var target = document.getElementById("target")
 function push(){
   var inputValue = document.getElementById("inpt").value;
-  target.innerHTML += "<br />" + ">    " + inputValue
+
+
+  // target.innerHTML += "<br />" + ">    " + inputValue
 //Debug input reader VV
 // javascript:alert(inputValue)
 
 // help form
   if (inputValue == "help") {
     // target.innerHTML += "<br />" + "You asked for help."
-    target.insertAdjacentHTML("beforeend", "<br />we could all use a little help . . . <br /> try some of these commands 👇<br /> --------------------- <br /> art -- see something <br /> music -- hear somethihng <br /> words -- read something")
+    target.insertAdjacentHTML("afterbegin", "<br />we could all use a little help . . . <br /> try some of these commands 👇<br /> --------------------- <br /> art -- see something <br /> music -- hear somethihng <br /> words -- read something")
+    target.insertAdjacentHTML("afterbegin", "<br /> >    " + inputValue + "<br />---------------------")
   }
   if (inputValue == "art"){
-    target.insertAdjacentHTML("beforeend", "<br /> <i>Title: 17</i><img src='17.jpg'/>")
-    target.insertAdjacentHTML("beforeend", "<br /> <i>Title: 22</i> <img src='22.jpg'/>")
+    target.insertAdjacentHTML("afterbegin", "<br /> <i>Title: 17</i><img src='17.jpg'/>")
+    target.insertAdjacentHTML("afterbegin", "<br /> <i>Title: 22</i> <img src='22.jpg'/>")
+    target.insertAdjacentHTML("afterbegin", "<br /> >    " + inputValue + "<br />---------------------")
   }
 input.value = ""
 }
