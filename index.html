@@ -68,7 +68,6 @@ function push(){
   if (inputValue == "help") {
     // target.innerHTML += "<br />" + "You asked for help."
     target.insertAdjacentHTML("afterbegin", "<br />we could all use a little help . . . <br /> try some of these commands 👇<br /> --------------------- <br /> art -- see something <br /> music -- hear somethihng <br /> words -- read something")
-    target.insertAdjacentHTML("afterbegin", "<br /> >    " + inputValue + "<br />---------------------")
   }
 //art
   if (inputValue == "art"){
@@ -77,13 +76,16 @@ function push(){
     target.insertAdjacentHTML("afterbegin", "<br /> <i>ENTER 2018</i><img src='ENTER.jpg'/>")
     target.insertAdjacentHTML("afterbegin", "<br /> <i>DONT LOOK NOW 2018</i> <img src='DONT LOOK NOW.jpg'/>")
     target.insertAdjacentHTML("afterbegin", "<br /><i>Digital Palace 2014</i><br /><video style='max-width: 100%;' controls loop> <source src='digital palace.mp4' type='video/mp4'> Your browser does not support the video tag. </video>")
-    target.insertAdjacentHTML("afterbegin", "<br /> >    " + inputValue + "<br />---------------------")
   }
   //music
   if (inputValue == "music"){
     target.insertAdjacentHTML("afterbegin", "<br /><i>turning: collected works from 20xx-2021</i><br /><iframe src='https://open.spotify.com/embed/album/4KvjkxvnKlGkdMg1v1Bvep?utm_source=generator&theme=0' width='100%' height='380' frameBorder='0' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>")
     target.insertAdjacentHTML("afterbegin", "<br /> <i> the distant echo of the freeway makes the world sound that much more lonely. 2021</i> <br /><iframe src='https://open.spotify.com/embed/album/48SCRBElkMzEQarAsQ4xOy?utm_source=generator&theme=0' width='100%' height='380' frameBorder='0' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>")
   }
+  if (inputValue == "words"){
+    target.insertAdjacentHTML("afterbegin", "<br /> No words yet. Check back later.")
+  }
+target.insertAdjacentHTML("afterbegin", "<br /> >    " + inputValue + "<br />---------------------")
 input.value = ""
 }
 input.addEventListener("keyup", function(event) {
