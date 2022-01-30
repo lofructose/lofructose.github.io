@@ -76,6 +76,7 @@ function push(){
     // target.innerHTML += "<br />" + "You asked for help."
     target.insertAdjacentHTML("afterbegin", "<br />we could all use a little help . . . <br /> try some of these commands 👇<br /> --------------------- <br /> art -- see something <br /> music -- hear somethihng <br /> words -- read something<br />lexicon -- �����")
   }
+  //CONSIDER MAKING THESE INTO OBJECTS vv So that you can call a function to print compartmentalized versions of the contet. Ex. art.2022
 //art
   if (inputValue == "art"){
     target.insertAdjacentHTML("afterbegin", "<br /> <i>CMD 2019</i><img src='CMD.jpg'/>")
@@ -94,7 +95,7 @@ function push(){
     target.insertAdjacentHTML("afterbegin", "<br /> No words yet. Check back later.")
   }
   if (inputValue == "lexicon"){
-    target.insertAdjacentHTML("afterbegin", "<br /> If you want to dive deeper, you will need this.<br />" + JSON.stringify(lexicon));
+    target.insertAdjacentHTML("afterbegin", "<br /> If you want to dive deeper, you will need this.<br />I̵̧̹͈̋͠f̸̞̍͊͝ ̶̼͕̍̾̓ả̴̬͖̗n̶̘̭͊ỹ̸̰̕o̴̡͇̓n̶̨̺͂̆ę̴͎̩̠͆͑͂͠ ̷̜̻̪̼͊w̴̭͗ȍ̵̙̥̗́r̶͚͖̅̐͂s̴̗̬̪̲͊̈́͒ĥ̴̛̭͝í̸̩̩p̵͖̳̹͑̏̐͠s̶̖̹̟̀̽̉ ̵̀̿́̍͜t̸͓̲̾̅ḩ̴͙̬́͜ė̴̝̽͜ ̴̢̲̗̽ḃ̸̩͋e̵̖͉̣̾á̷͓s̶̔̒̏ͅt̷̙̟͔̕ͅ ̵̭͚̜̋ą̵̠̥͇͆n̷̛̠̮͚̭d̷̨͂ ̴̞̪̝̀͊͌ͅh̷̗̩͐̎͝ĭ̸͓̬̚s̷̨̱̺̀̊͂ ̸̯͆̋̆͗i̴̼͌m̶̬͓͔̬͆̿a̴̟͚͕̫̒g̶̺͆e̷̦̭͊̊̐͠,̷͇̗̞̩̈́̎̓̀ ̷͂ͅa̷̲̼̍n̷̢̜̝̭̏͊d̷͉͚̽̎̒ ̴̨͕͍̩́̓͐̐r̶̳̲̝̍̀ͅe̴̼̫͌͑̈́ͅc̸̨̢̜̉̈́è̸͕i̵͖̩̫͉̿͂̋͒v̴͈̖͍̮́ẹ̷̐̃̉s̷̺̭̏͜͠ ̷̙͚̄a̵̗̙̔ ̵̛̮̣̉͊m̶͈̹̏a̸͓̰͊r̸̨̽͂̇k̸͎͙̽ ̶̯͑̈́ó̷̧͑n̶̡͔̬̣̈́͝͠ ̷̦͒h̶̠̦̑͑̾ỉ̷̬̇s̴̞̻̊͝ ̵̤̜̿̒f̶̢̯͉̼̋̍̈́͝o̵̙͓͈͙̐r̷͕͊̔̾ȅ̸̢͙̫͈̑h̸̥̣̺͕̎̋̓̏ê̸̼̝̅a̴̠̮̓d̴̟̰̥͂̍͐͝ ̴̼̼͚̐́o̸̥̪͐͛͘r̶̰̕ ̴̜́̉͌͝ǫ̸̭͇̀͑n̸̬͚̏́̒ ̶̳̍h̵̜̮͑͋̑̀ì̵̟̱͙̤́̈̑s̴̘̏̂͂͝ ̷͇̇̈́́͝h̴̨͓͔͇͝a̴̻͍̦̍̂͑̆n̵̼̖̎̏͝d̵͔͉͕̗̐͑͘͝,̷̖̊̉̎ ̵͙̋̊h̴̙̝̰͊e̴̤̋̐̑̕ ̸̺̫͚̰̓͛ą̴͍̹̽̏̉̃l̸̯̽̐͆͠s̵̨̘̤̹͑̐o̷̟̫̽ ̶͈̈́͛̉w̵̤͎̑̕͠i̴̫͓͈͚͗͋̚l̷̨̪̈́ļ̸̙̥̄͊̓͜ ̷̛͈̫d̶̜̯̏̉̈r̷͉̲̙͇̆͂i̴͎̹̣̍̊͗̚n̷̤͍͙̝̐͛ḱ̶̲̞̉ ̵̻̺̍͗̓̀o̴͓͑̂̓̀f̷̟͙͋͛̄ ̶̮͒́͑̓ṫ̴̺̫̅͊͘h̷̢̡̨̄̽̚ę̶̠̣͝ ̴̦́w̵̖̾i̶̙̳̜̕ǹ̴̠̻̈ḛ̸̺͔̦̈͆̿͝ ̶̺̦̙̙̈́͠o̶̢̬̜̮̒̕f̷̨̟̿̽̋̀ ̶̨̳̃t̷̨̤̒̿͜h̸͉̮̚e̶͙̠̭͗̅̔̇͜ ̵̪͖͇͙̒̑̌̈́ẘ̴̞̤͙̋̚r̸̛̝̈͆̾a̸̦̳̗̖̓t̵̬͕̣̗̊h̵̡̢͔̼̒̋͗͠ ̴̡̛͎̮̎͝o̷̗͇͂͛̑͠ͅf̴̈̕ͅ ̷͕̔ͅG̸͎̠͕̈͜ỏ̶͕̞̹̋d̸̤͝ <br /> <br />" + JSON.stringify(lexicon));
   }
 target.insertAdjacentHTML("afterbegin", "<br /> >    " + inputValue + "<br />---------------------")
 input.value = ""
