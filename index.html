@@ -1,85 +1,75 @@
-<!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
-</head>
-<style media="screen">
-  body {
-    background-color: black;
-    overflow: scroll;
-    position: fixed;
-}
-img{
-  width: 100%;
-max-width: 400px;
-height: auto;
-}
-.terminal {
---color: white;
---background: black;
---link-color: darkblue;
---size: 2;
-position: fixed;
-/* bottom:10px; */
-width:100%;
-padding-top: 300px;
-/* height:100%; */
-overflow: hidden;
-}
-.maindo{
-  color:black;
-  position:fixed;
-  width:100%;
-  height: 100%;
-  /* bottom:10px; */
-  /* overflow-y:hidden;
-overflow-x:hidden; */
-/* display: flex; */
-}
+<title>Terminal</title>
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+       --global-font-size: 15px;
+       /* --global-line-height: 1.4em;
+       --global-space: 10px; */
+       --font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
+         DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+         serif;
+       --mono-font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
+         DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+         serif;
+       --background-color: #222225;
+       /* --page-width: 60em; */
+       --font-color: #e8e9ed;
+       --invert-font-color: #222225;
+       --secondary-color: #a3abba;
+       --tertiary-color: #a3abba;
+       --primary-color: #62c4ff;
+       --error-color: #ff3c74;
+       --progress-bar-background: #3f3f44;
+       --progress-bar-fill: #62c4ff;
+       --code-bg-color: #3f3f44;
+       --input-style: solid;
+       --display-h1-decoration: none;
+     }
+     input{
+
+     }
 </style>
-<body>
-  <!-- <div class="maindo"> -->
-  <div id="terminal">
-  <script>
-    // $('#terminal').terminal({
-    //   hello: function(what){
-    //     this.echo('Hello, ' + what + '. Welcome to the gun show.')
-    //   }
-    // },
-    //     help: function(){
-    //       this.echo('You have been helped.')
-    //     }
-    //   );
-    $('#terminal').terminal({
-    open: function() {
-        this.echo('you try to open').exec('close');
-    },
-    close: function() {
-        this.echo('you closed');
-    },
-    fart: function(){
-        this.echo('smell')
-    },
-    help: function(){
-        this.echo("\n" + "we can all use a hand." + "\n" + "here's some help." + "\n" + "\n" + "try typing some of these commands:" + "\n" + "\n" + "art - see my work." + "\n" +  "music - hear my work." + "\n" +  "writing - read my work.")
-    },
-    art: function(){
-      this.echo($('<img src="images/19.jpg">'));
-      this.echo($('<img src="images/26.jpg">'));
-    }
-},{
-  greetings: "l̴̘̒ọ̴̀s̵̬͘t̵̳̓ṿ̸̐i̸̻̅s̵̬̀i̴̳͘õ̸̩n̷͕͠ş̷͛ " + "\n" + "\n" + "welcome to my mind." + "\n" + "this site is built to be explored." + "\n" + "if you need help, just say so." + "👇" + "\n",
-height: 200
-},
-);
-  </script>
+
+</head>
+<link rel="stylesheet" href="https://unpkg.com/terminal.css@0.7.2/dist/terminal.min.css" />
+<body class="terminal">
+  <div style="width:100%; height:50px; position:absolute;">
+  <input id="inpt" type="text" placeholder="> commands . . ."></input>
+  <button id="myBtn" onclick="push()" style="display: none;">Button</button>
   </div>
-  <!-- </div> -->
-  <!-- <div>
-    pad
-    </div> -->
+  <div style="overflow-y:auto; height:100%; padding-top:50px;">
+    <div id="target">
+      <!-- content enters here -->
+    </div>
+  </div>
+<script>
+var input = document.getElementById("inpt");
+var target = document.getElementById("target")
+function push(){
+  var inputValue = document.getElementById("inpt").value;
+  target.innerHTML += "<br />" + ">    " + inputValue
+//Debug input reader VV
+// javascript:alert(inputValue)
+
+// help form
+  if (inputValue == "help") {
+    // target.innerHTML += "<br />" + "You asked for help."
+    target.insertAdjacentHTML("beforeend", "<br />we could all use a little help . . . <br /> try some of these commands 👇<br /> --------------------- <br /> art -- see something <br /> music -- hear somethihng <br /> words -- read something")
+  }
+  if (inputValue == "art"){
+    target.insertAdjacentHTML("beforeend", "<br /><img src='/images/'17.jpg'> </img>")
+  }
+input.value = ""
+}
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("myBtn").click();
+  }
+});
+</script>
 </body>
 </html>
