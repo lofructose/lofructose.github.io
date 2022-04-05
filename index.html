@@ -16,13 +16,14 @@
        --mono-font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
          serif;
-       --background-color: #222225;
+       --background-color: #000;
+       background-color: #000;
        /* --page-width: 60em; */
        --font-color: #e8e9ed;
        --invert-font-color: #222225;
        --secondary-color: #a3abba;
        --tertiary-color: #a3abba;
-       --primary-color: #62c4ff;
+       --primary-color: #000;
        --error-color: #ff3c74;
        --progress-bar-background: #3f3f44;
        --progress-bar-fill: #62c4ff;
@@ -80,11 +81,27 @@ function push(){
   //CONSIDER MAKING THESE INTO OBJECTS vv So that you can call a function to print compartmentalized versions of the contet. Ex. art.2022
 //art
   if (inputValue == "art"){
+    // areas
+    target.insertAdjacentHTML("afterbegin", "<br /> <i>Area 10 DATE UNKNOWN</i><img src='area 10.png'/>")
+    target.insertAdjacentHTML("afterbegin", "<br /> <i>Area 52 DATE UNKNOWN</i><img src='area 52.png'/>")
+    target.insertAdjacentHTML("afterbegin", "<br /> <i>Area 53 DATE UNKNOWN</i><img src='area 53.png'/>")
+    target.insertAdjacentHTML("afterbegin", "<br /> <i>Area 88 DATE UNKNOWN</i><img src='area 88.png'/>")
+    target.insertAdjacentHTML("afterbegin", "<br /> <i>Area 93 DATE UNKNOWN</i><img src='area 93(2).png'/>")
+    target.insertAdjacentHTML("afterbegin", "<br /> <i>Area 99 DATE UNKNOWN</i><img src='area 99.png'/>")
+
     target.insertAdjacentHTML("afterbegin", "<br /> <i>CMD 2019</i><img src='CMD.jpg'/>")
     target.insertAdjacentHTML("afterbegin", "<br /> <i>There are 12 Lines 2018</i><img src='12 lines.jpg'/>")
     target.insertAdjacentHTML("afterbegin", "<br /> <i>ENTER 2018</i><img src='ENTER.jpg'/>")
     target.insertAdjacentHTML("afterbegin", "<br /> <i>DONT LOOK NOW 2018</i> <img src='DONT LOOK NOW.jpg'/>")
     target.insertAdjacentHTML("afterbegin", "<br /><i>Digital Palace 2014</i><br /><video style='max-width: 100%;' controls loop poster='poster.png'> <source src='digital palace.mp4' type='video/mp4'> Your browser does not support the video tag. </video>")
+
+    // Time
+    target.insertAdjacentHTML("afterbegin", "<br /> <i>Beginners Guide 2014</i><img src='T beginners guide.png'/>")
+    target.insertAdjacentHTML("afterbegin", "<br /> <i>Don't Think About It 2014</i><img src='T dontthinkaboutit.png'/>")
+    target.insertAdjacentHTML("afterbegin", "<br /> <i>Inner 2014</i><img src='T life.png'/>")
+    target.insertAdjacentHTML("afterbegin", "<br /> <i>Outer 2014</i><img src='T Outter.png'/>")
+    target.insertAdjacentHTML("afterbegin", "<br /> <i>unknown DATE UNKNOWN</i><img src='Flares2.png'/>")
+    target.insertAdjacentHTML("afterbegin", "<br /> <i>stx DATE UNKNOWN</i><img src='stx.png'/>")
   }
 //music
   if (inputValue == "music"){
